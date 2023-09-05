@@ -148,13 +148,14 @@ export function load(sound, onloadcb, onerrorcb) {
     if (audioExts.length === 0) {
         throw new Error("target audio extension(s) should be set through me.audio.init() before calling the preloader.");
     }
-    if (isDataUrl(sound.src) === true) {
-        urls.push(sound.src);
-    } else {
-        for (let i = 0; i < audioExts.length; i++) {
-            urls.push(sound.src + sound.name + "." + audioExts[i] + nocache);
-        }
-    }
+    urls.push(sound.src);
+    // if (isDataUrl(sound.src) === true) {
+    //     urls.push(sound.src);
+    // } else {
+    //     for (let i = 0; i < audioExts.length; i++) {
+    //         urls.push(sound.src + sound.name + "." + audioExts[i] + nocache);
+    //     }
+    // }
 
     audioTracks[sound.name] = new Howl({
         src : urls,
