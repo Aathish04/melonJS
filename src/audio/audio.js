@@ -2,7 +2,7 @@
 import {Howl, Howler} from "howler";
 import {clamp} from "./../math/math.js";
 import { nocache, withCredentials} from "./../loader/settings.js";
-import { isDataUrl } from "./../utils/string.js";
+// import { isDataUrl } from "./../utils/string.js";
 
 /**
  * @namespace audio
@@ -145,6 +145,7 @@ export function disable() {
  */
 export function load(sound, onloadcb, onerrorcb) {
     let urls = [];
+    console.log(nocache);
     if (audioExts.length === 0) {
         throw new Error("target audio extension(s) should be set through me.audio.init() before calling the preloader.");
     }
